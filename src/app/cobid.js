@@ -1,15 +1,29 @@
 import React , { useState } from 'react';
 import superagent from 'superagent';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVirus } from '@fortawesome/free-solid-svg-icons';
+import Navbar from 'react-bootstrap/Navbar'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { NavDropdown } from 'react-bootstrap';
 
-function Cobid() {
+function Cobid(props) {
 
-    const [cobidField, setCobidField] = React.useState('')
-    const [stateData, setStateData] = React.useState({});
+    const [cobidField, setCobidField] = React.useState('--')
+    const [stateData, setStateData] = React.useState({risk: 0});
     const [loaded, setLoaded] = React.useState(false)
 
+    const stateList = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
+                        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+                        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+                        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+                        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
 
-        const cobidFetch = () => {
-        const cap = cobidField.toUpperCase()
+        const cobidFetch = (sta) => {
+        
+        setCobidField(sta)
+        const cap = sta
         const url = `https://api.covidactnow.org/v2/state/${cap}.timeseries.json?apiKey=${process.env.REACT_APP_ACT_NOW_API}`
             superagent.get(url)
             .then((rez)=>{
@@ -18,6 +32,7 @@ function Cobid() {
                 setStateData({cdcTransmissionLevel: core.cdcTransmissionLevel,
                             cases: core.actuals.cases,
                             deaths: core.actuals.deaths,
+                            risk: core.riskLevels.overall,
                             hospitalBeds: { capacity: core.actuals.hospitalBeds.capacity,
                                             currentUsageTotal: core.actuals.hospitalBeds.currentUsageTotal,
                                             currentUsageCovid: core.actuals.hospitalBeds.currentUsageCovid,
@@ -32,6 +47,7 @@ function Cobid() {
                                             }
                                   }
                             )
+                props.warn(core.riskLevels.overall)
                 setLoaded(true);
                 console.log("the state: ", stateData)
             })
@@ -40,47 +56,45 @@ function Cobid() {
             })
         }
 
-        const enter = (e) => {
-            if (e.key === "Enter") { cobidFetch() }
-        }
+        // const enter = (e) => {
+        //     if (e.key === "Enter") { cobidFetch() }
+        // }
 
     return (
-        <>{ !loaded 
-            ? <input className="state-field" name="cobidInput" maxLength="2" value={cobidField} pattern="[A-Z]+.{,2}" onChange={el => setCobidField(el.target.value)} onKeyDown={e => enter(e)} />
-            :<>
-            <input className="state-field" name="cobidInput" maxLength="2" value={cobidField} pattern="[A-Z]+.{,2}" onChange={el => setCobidField(el.target.value)} onKeyDown={e => enter(e)} />
-            <div style={{ 'width': '40%', 'opacity': '30%', 'justifySelf': 'right' }} className='big-text'>{cobidField}</div>
-            <table id="stacked-covid-chart" className="charts-css bar multiple stacked">
-            <thead>
-                {/* <tr>
-                    <th scope="col"> Location </th>
-                    <th scope="col"> #1 </th>
-                    <th scope="col"> #2 </th>
-                    <th scope="col"> #3 </th>
-                    <th scope="col"> #4 </th>
-                </tr> */}
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">Hospital Beds</th>
-                    <td style={{"--size":`calc(${stateData.hospitalBeds.covidPer} / 100)` , "color": "--color-1"}}><span className="data"> {stateData.hospitalBeds.covidPer}% </span></td>
-                    <td style={{"--size":`calc(${stateData.hospitalBeds.usedPer - stateData.hospitalBeds.covidPer} / 100)` , "color": "--color-2"}}><span className="data"> {stateData.hospitalBeds.usedPer}% </span></td>
-                    <td style={{"--size":`calc(${100 - stateData.hospitalBeds.usedPer} / 100)` , "color": "--color-3"}}><span className="data">{100 - stateData.hospitalBeds.usedPer}%</span></td>
-                </tr>
-                <tr>
-                    <th scope="row">ICU Beds</th>
-                    <td style={{"--size":`calc(${stateData.icuBeds.covidPer} / 100)`}}><span className="data"> {stateData.icuBeds.covidPer}% </span></td>
-                    <td style={{"--size":`calc(${stateData.icuBeds.usedPer - stateData.icuBeds.covidPer} / 100)`}}><span className="data"> {stateData.icuBeds.usedPer}% </span></td>
-                    <td style={{"--size":`calc(${100 - stateData.icuBeds.usedPer} / 100)`}}><span className="data"> {100 - stateData.icuBeds.usedPer}% </span></td>
-                </tr>
+         <div >
+           {/* <DropdownButton title={cobidField} >
+                {stateList.map(el => <Dropdown.Item id={el} value={el} key={el} onClick={(ell) => { cobidFetch(ell.target.text) }} >{el}</Dropdown.Item> )}
+            </DropdownButton> */}
+            <Navbar   expand="lg">
+                <NavDropdown title={cobidField}>
+            {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
+                </NavDropdown>
+            </Navbar>
+        { !loaded 
+            ? <></>
+            :<div className="covid-data-box">
+                {stateData.risk}
+            <p>Hospital Bed Capacity</p>
+            <div className="progress-box">
+            <ProgressBar label="hospital-beds">
+                <ProgressBar striped variant="danger" label={"COVID"} now={stateData.hospitalBeds.covidPer} key={1} />
+                <ProgressBar variant="warning" label={"USED"} now={stateData.hospitalBeds.usedPer - stateData.hospitalBeds.covidPer} key={2} />
+            </ProgressBar>
+            </div>
+            
+            <p>ICU Bed Capacity</p>
+            <div className="progress-box">  
+            <ProgressBar label="icu-beds">
+                <ProgressBar striped variant="danger" label="COVID" now={stateData.icuBeds.covidPer} key={1} />
+                <ProgressBar variant="warning" label="USED" now={stateData.icuBeds.usedPer - stateData.icuBeds.covidPer} key={2} />
+            </ProgressBar>
+            </div>
 
-            </tbody>
-            </table>
+            <div className="case-line">{stateData.cases} cases | {stateData.deaths} deaths</div>
 
-                    <div>{stateData.cases} | {stateData.deaths}</div>
-            </>
+            </div>
         }
-        </>
+        </div>
     );
 }
 

@@ -5,8 +5,7 @@ function Footer() {
 
     return (
         <div className="footer-container">
-            <p style={{"height": "1rem" , "margin": "4px"}}>Julien Edwards</p>
-            <img type="svg" src="../resizeLogo.svg" width="50" height="60" />
+            <img type="svg" src="../resizeLogo.svg" width="40" height="50" />
         </div>
     )
 

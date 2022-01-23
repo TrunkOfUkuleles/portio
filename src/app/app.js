@@ -1,8 +1,7 @@
 import React , { useState , useEffect }from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
-import superagent from 'superagent';
-import Cobid from './cobid.js';
+import About from './about.js'
 import '../style.css';
 
 const App = () => {
@@ -16,10 +15,8 @@ const App = () => {
         <div className='main'>
             <Header />
             <div className="main-box" style={{"border": "2px solid green", "minHeight": "2em"}}>
-                    <> 
-                        <p>Main bit</p>
-                        <Cobid />
-                    </>
+                <p>Main bit</p>
+                <About />
             </div>
             <Footer />
         </div>
