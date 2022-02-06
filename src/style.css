@@ -33,29 +33,23 @@
 .footer-container {
     border: 1px solid red;
     display: flex;
-    /* flex-direction: column; */
-    width: 100%;
+    width: 80%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     max-height: 100px;
     margin-bottom: 5px;
     padding-bottom: 5px;
-    /* flex-grow: .5; */
 
 }
 
 .header-container {
     background-color: cornflowerblue;
-    width: 100%;
+    width: 80%;
     display: flex;
-    /* align-items: top; */
     justify-content: space-around;
-    /* position: fixed; */
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: 15px 20ch;
+    padding: 15px 20%;
     gap: 40px;
+    margin: auto;
 }
 
 
@@ -194,4 +188,44 @@
 
 .warning-color-5 {
     background-color: red;
+}
+
+.about-me {
+    width: 90%;
+    border: 1px solid green;
+    height: 40vh;
+}
+
+.picture-box{
+    margin: 10px 40px;
+    flex: 2;
+    justify-self: flex-start;
+    width: 100%;
+}
+
+.about-talk {
+    display: flex;
+    justify-content: flex-end;
+    right:0px;
+    margin: 5px 10px;
+}
+
+.footer-text {
+    display: grid;
+}
+
+.footer-container p {
+font-size: .6em;
+font-weight: bold;
+margin: 3px;
+margin-left: 0px;
+}
+
+.chat-window {
+border: 1px solid blue;
+
+}
+
+.input-field {
+
 }

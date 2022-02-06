@@ -1,18 +1,14 @@
 import React , { useState } from 'react';
 import superagent from 'superagent';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVirus } from '@fortawesome/free-solid-svg-icons';
 import Navbar from 'react-bootstrap/Navbar'
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { NavDropdown } from 'react-bootstrap';
 
 function Cobid(props) {
 
-    const [cobidField, setCobidField] = React.useState('--')
-    const [stateData, setStateData] = React.useState({risk: 0});
-    const [loaded, setLoaded] = React.useState(false)
+    const [cobidField, setCobidField] = useState('--')
+    const [stateData, setStateData] = useState({risk: 0});
+    const [loaded, setLoaded] = useState(false)
 
     const stateList = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
                         "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 

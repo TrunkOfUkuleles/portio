@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Vectornator for iOS (http://vectornator.io/) --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" width="100%" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve">
+<metadata>
+<vectornator:setting value="false" key="WDCMYKEnabledKey"/>
+<vectornator:setting value="false" key="WDSnapToEdges"/>
+<vectornator:setting value="true" key="VNDimensionsVisible"/>
+<vectornator:setting value="false" key="WDIsolateActiveLayer"/>
+<vectornator:setting key="WDOutlineMode" value="false"/>
+<vectornator:setting key="WDSnapToPoints" value="false"/>
+<vectornator:setting key="WDDynamicGuides" value="false"/>
+<vectornator:setting key="VNPencilOnly" value="false"/>
+<vectornator:setting key="VNSnapToGuides" value="true"/>
+<vectornator:setting value="Points" key="WDUnits"/>
+<vectornator:setting key="WDSnapToGrid" value="false"/>
+<vectornator:setting key="WDRulersVisible" value="true"/>
+<vectornator:setting key="UndoHistoryDisabled" value="false"/>
+<vectornator:setting key="IsTimeLapseWatermarkDisabled" value="false"/>
+<vectornator:setting value="false" key="WDDisplayWhiteBackground"/>
+<vectornator:setting key="WDGuidesVisible" value="true"/>
+</metadata>
+<defs/>
+<g id="Layer 1" vectornator:layerName="Layer 1">
+<path opacity="1" stroke="#000000" fill="#000000" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M104.302+11.8781C104.241+11.8777+104.184+11.9078+104.15+11.9582L75.068+54.6712L46.107+12.1301C46.0319+12.0189+45.8664+12.0242+45.7984+12.1399L20.3181+54.9015C20.2834+54.9601+20.2723+55.045+20.3083+55.1028L76.1305+144.418C76.2021+144.531+76.3674+144.531+76.4391+144.418L133.399+55.0155C124.029+40.5955+114.122+26.2942+104.453+11.9582C104.419+11.9083+104.363+11.8784+104.302+11.8781ZM104.3+12.386L133.048+55.009L76.2867+143.978L20.6773+55.0032L45.9664+12.5715L74.9175+55.0969L75.2183+55.0969L104.3+12.386Z"/>
+<path opacity="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="3" stroke="#000000" fill="none" d="M21.7357+55.0032L132.519+55.0091"/>
+<path opacity="1" stroke-linejoin="round" stroke-linecap="round" stroke-width="3" d="M75.2183+55.0969L104.39+99.7164L48.482+99.4905L75.2183+55.0969Z" fill="none" stroke="#000000"/>
+<path stroke-width="3" stroke-linejoin="round" opacity="1" stroke-linecap="round" d="M1.70901+75.0217C1.70901+34.4288+34.5314+1.52173+75.0198+1.52173C115.508+1.52173+148.331+34.4288+148.331+75.0217C148.331+115.615+115.508+148.522+75.0198+148.522C34.5314+148.522+1.70901+115.615+1.70901+75.0217Z" fill="none" stroke="#000000"/>
+</g>
+</svg>
