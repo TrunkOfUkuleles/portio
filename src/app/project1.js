@@ -1,25 +1,26 @@
 import React , {useState, useEffect, useRef} from "react";
 import superagent from "superagent";
-
+import { io } from "socket.io-client";
 const Chat = () => {
 
     const [searchField, setSearchField] = useState('');
     const [results, setResults] = useState([])
     const [chat, setChat] = useState([])
 
-    const io = require('socket.io-client');
     // require('dotenv').config();
     const HOST = process.env.REACT_APP_HOST || "http://localhost:3004"
     const socket = io.connect(`${HOST}/gifs`);
 
     // useEffect(()=>{
-    //     socket.emit('join', )
-    // },[])
+    //     socket.emit('join', { user: "admin" })
+    // })
 
     useEffect(()=> {
         socket.on('message', payload => {
             //Updates the chat message list
-            setChat([...arr, { message: payload.message }])
+            console.log("GETTING MESSAGE: " , payload.message)
+            console.log("CHAT: ", chat);
+            setChat([...chat, {...payload.message} ])
         });
     })
     
@@ -74,38 +75,35 @@ const Chat = () => {
         }, [chat])
 
         const socketSend = (e) => {
-            e.prevendDefault();
+            // e.prevendDefault();
+            console.log("READYING: ", { image: e.target.src, id: e.target.id, title: e.target.alt } );
             socket.emit('message', { message: { image: e.target.src, id: e.target.id, title: e.target.alt } })
-            setChat([...chat, { message: { image: e.target.src, id: e.target.id, title: e.target.alt } } ])
+            // setChat([...chat, { message: { image: e.target.src, id: e.target.id, title: e.target.alt } } ])
         }
 
-        const chatLog = () => {
+        // const chatLog = () => {
 
-            return (
-                <div>
-                    {chat.map(chit => <>
-                    <div key={chit.id} className="notification">
-                        <h4>
-                            {chit}
-                        </h4>
-                    </div>
-                    <div ref={messagesEndRef} />
-                </>)}
-                </div>
-            )
-        }
+        //     return (
+        //         <div>
+        //             {chat.map( chit => (<img src={chit.image} className="gif-result" key={chit.id} alt={chit.title} />) )}
+        //             {/* <div ref={messagesEndRef} /> */}
+        //         </div>
+        //     )
+        // }
 
     return (
         <div className="chat-container">
             <div className="chat-window">
-            {chatLog}
+            {chat &&
+            chat.map( chit => (<img src={chit.image} className="gif-result" key={chit.id} alt={chit.title} />) )}
+            <div ref={messagesEndRef} />
             </div>
             <div className="input-field">
-                <input value={searchField} onSubmit={searchGif} onChange={(e) => setSearchField(e.target.value)}></input>
-                <button>gif me</button>
-                <div>
+                <input value={searchField} onChange={(e) => setSearchField(e.target.value)}></input>
+                <button onClick={searchGif}>gif me</button>
+                <div clasName="gif-array">
                     {results &&
-                    results.map(el => (<img src={el.image} alt={el.title} id={el.id} key={el.id} onClick={(e)=> socketSend(e)} />))
+                    results.map(el => (<img src={el.image} className="gif-result" alt={el.title} key={el.id} onClick={(e)=> socketSend(e)} />))
                     }
                 </div>
             </div>

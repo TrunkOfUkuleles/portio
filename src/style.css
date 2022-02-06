@@ -215,17 +215,37 @@
 }
 
 .footer-container p {
-font-size: .6em;
-font-weight: bold;
-margin: 3px;
-margin-left: 0px;
+    font-size: .6em;
+    font-weight: bold;
+    margin: 3px;
+    margin-left: 0px;
 }
 
 .chat-window {
-border: 1px solid blue;
+    border: 1px solid blue;
 
 }
 
 .input-field {
+
+}
+
+.chat-container {
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chat-window {
+    min-height: 2rem;
+    border: 2px solid green;
+    overflow-y: scroll;
+}
+
+.gif-array {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
 }
