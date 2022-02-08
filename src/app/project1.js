@@ -10,7 +10,7 @@ const Chat = () => {
     // require('dotenv').config();
     const HOST = process.env.REACT_APP_HOST || "http://localhost:3004"
     const socket = io.connect(`${HOST}/gifs`);
-
+    const gifAPI = process.env.REACT_APP_GIF_API
     // useEffect(()=>{
     //     socket.emit('join', { user: "admin" })
     // })
@@ -29,7 +29,7 @@ const Chat = () => {
             let rez = []
             let url = `https://api.giphy.com/v1/gifs/trending?limit=3`
             superagent.get(url)
-                .query({ api_key: `${process.env.REACT_APP_GIF_API}` })
+                .query({ api_key: `${gifAPI}` })
                 .then(function (results) {
                     let base = results.body.data
                     base.forEach(el => {
