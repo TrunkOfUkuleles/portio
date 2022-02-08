@@ -245,7 +245,7 @@
 
 .gif-array {
     display: flex;
-    align-items: center;
+    align-content: center;
     gap: 10px;
 
 }
