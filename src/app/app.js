@@ -15,11 +15,13 @@ const App = () => {
     return (
         <div className='main'>
             <Header change={setFocus} />
+
             <div className="main-box" style={{"border": "2px solid green", "minHeight": "2em"}}>
-                <p>Main bit</p>
+                
                 {focus=='about' && <About />}
+                {focus==='projects' && <Chat />}
             </div>
-            <Chat />
+            
             <Footer />
         </div>
     )

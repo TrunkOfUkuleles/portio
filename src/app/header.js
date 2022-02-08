@@ -13,8 +13,10 @@ function Header({change}) {
         <div className="header-background">
         <div className="header-container">
             <div className="logo-container"><img type="svg" src="../resizeLogo.svg" width="50" height="60" /></div>
-            <div className="navs about" value="about" onClick={(e)=>{change('about')}}>About Me</div>
-            <div className="navs projects" value="projects" onClick={(e)=>{change('projects')}}>Projects</div>
+                <div className='text navs'>
+                <div className="navs about" value="about" onClick={(e)=>{change('about')}}>About Me</div>
+                <div className="navs projects" value="projects" onClick={(e)=>{change('projects')}}>Projects</div>
+                </div>
             <div className={`forecast ${openForecast ? "open" : "closed"} covid-forecast warning-color-${wraninglevel}`}>
                 { openForecast ? <Cobid warn={setWarningLevel} /> : <></> }
                 <FontAwesomeIcon className="v-icon" icon={faVirus} onClick={()=> setOpenForecast(!openForecast)} />

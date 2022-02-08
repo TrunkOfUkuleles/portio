@@ -44,15 +44,25 @@
 
 .header-container {
     background-color: cornflowerblue;
-    width: 80%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 15px 20%;
     gap: 40px;
-    margin: auto;
 }
 
+.text {
+    display: flex;
+    border: 1px solid red;
+    padding: 10px;
+    
 
+}
+
+.text > *:hover {
+    color: yellow;
+    cursor: pointer;
+}
 
 .state-field {
     text-transform: uppercase;
@@ -234,18 +244,41 @@
     min-height: 3rem;
     display: flex;
     flex-direction: column;
+    max-width: 60ch;
+   
+}
 
+.gif-message {
+    border: 1px solid grey;
+    border-radius: 20px;
+    background-color: gray;
+    padding: 5px;
+    margin: 7px;
+    /* max-width: 200px; */
 }
 
 .chat-window {
-    min-height: 2rem;
+    min-height: 4rem;
     border: 2px solid green;
+    display: flex;
+    flex-direction: column;
     overflow-y: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    padding: 20px 20%;
+    align-items: center;
+}
+
+.gif-result {
+    cursor: pointer;
+    height: 110px;
+    margin: 5px;
 }
 
 .gif-array {
     display: flex;
-    align-content: center;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    max-height: 110px;
 
 }

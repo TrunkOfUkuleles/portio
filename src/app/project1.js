@@ -95,13 +95,13 @@ const Chat = () => {
         <div className="chat-container">
             <div className="chat-window">
             {chat &&
-            chat.map( chit => (<img src={chit.image} className="gif-result" key={chit.id} alt={chit.title} />) )}
+            chat.map( chit => (<img src={chit.image} className="gif-message" key={chit.id} alt={chit.title} />) )}
             <div ref={messagesEndRef} />
             </div>
             <div className="input-field">
                 <input value={searchField} onChange={(e) => setSearchField(e.target.value)}></input>
                 <button onClick={searchGif}>gif me</button>
-                <div clasName="gif-array">
+                <div className="gif-array">
                     {results &&
                     results.map(el => (<img src={el.image} className="gif-result" alt={el.title} key={el.id} onClick={(e)=> socketSend(e)} />))
                     }
