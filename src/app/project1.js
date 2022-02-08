@@ -7,7 +7,7 @@ const Chat = () => {
     const [results, setResults] = useState([])
     const [chat, setChat] = useState([])
 
-    require('dotenv').config();
+    // require('dotenv').config();
     const HOST = process.env.REACT_APP_HOST || "http://localhost:3004"
     const socket = io.connect(`${HOST}/gifs`);
     const gifAPI = process.env.REACT_APP_GIF_API
