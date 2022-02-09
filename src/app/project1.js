@@ -108,6 +108,12 @@ const Chat = () => {
                 </div>
             </div>
 
+            <div className="chat-desc">
+                GIFSMS was originally a chance to explore Socket.io systems and see how those live systems can be harnessed for a variety of things. The fun of 
+                limiting the interactions to Giphs from the Giphy API was just a great way to get us thinking. Our original site with Auth0 integration, chat rooms and 
+                persistant gif favoriting functionality can be found at {<a href="https://loving-kepler-ecd79b.netlify.app/">GIFSMS</a>}
+            </div>
+
         </div>
     )
 }
