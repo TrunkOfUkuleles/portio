@@ -8,14 +8,17 @@
     src: url('../public/fonts/Dune_Rise.otf'); /* IE9 Compat Modes */
   }
 
-@font-face {
+/* @font-face {
     font-family: 'KoHo';
     font-style: normal;
     font-weight: 400;
     src: url('../public/fonts/KoHo/KoHo-Regular.ttf');
-}
+} */
 
   /* @import url(//fonts.googleapis.com/css?family=KoHo); */
+
+  @import url('https://fonts.googleapis.com/css2?family=KoHo&display=swap');
+
 .main {
     display: flex;
     flex-direction: column;
@@ -30,7 +33,7 @@
 .main-box {
     border: 1px solid green;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -46,16 +49,18 @@
     max-height: 100px;
     margin-bottom: 5px;
     padding-bottom: 5px;
-
+    bottom: 0;
 }
 
 .header-container {
     background-color: cornflowerblue;
+    top: 0  ;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 15px 20%;
     gap: 40px;
+    max-height: 80px;
 }
 
 .text {
@@ -135,6 +140,7 @@
     display: flex;
     /* border: 3px solid grey; */
     background-color: green;
+    /* flex-shrink: 1.5; */
     /* flex-direction: column;
     align-items: flex-end; */
 
@@ -208,7 +214,11 @@
 }
 
 .about-me {
-    width: 90%;
+    width: 85%;
+    padding: 20px;
+    overflow-x: scroll;
+    display: flex;
+    flex-flow: column;
 }
 
 .picture-box{
@@ -241,33 +251,40 @@
 
 }
 
+.chatter {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ecf6ff;
+    max-height: 70%;
+}
+
 .input-field {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    padding: 10px;
 }
 
 .chat-container {
-    min-height: 3rem;
+    min-height: 40%;
     display: flex;
     flex-direction: column;
     width: 70%;
     justify-items: center;
-    /* flex-wrap: wrap; */
-    height: 75%;
-    background-color: #ecf6ff;
-    border-radius: 10px;
-    border: 2px solid #0E297A;
-
+    height: 80%;
+    border-radius: 5px;
+    flex-grow: 2;
 }
 
 .chat-desc {
-    background-color: indigo;
-    color: white;
+    background-color: #ecf6ff;
+    color: #0E297A;
+    margin-top: 50px;
 }
 
 .input-field input {
-    width: 70%;
+    width: 60%;
     align-self: center;
 }
 
@@ -287,7 +304,7 @@
     background-color: gray;
     padding: 5px;
     margin: 7px;
-    /* max-width: 200px; */
+    max-width: 150px;
 }
 
 .chat-window {
@@ -297,7 +314,7 @@
     overflow-y: scroll;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
-    padding: 20px 20%;
+    padding: 20px 15%;
     align-items: center;
     flex-grow: 2;
     background-color: #ecf6ff;
@@ -307,7 +324,7 @@
 .gif-result {
     cursor: pointer;
     height: 80px;
-    margin: 5px;
+    margin: 3px;
 }
 
 .gif-array {
@@ -320,39 +337,46 @@
 
 .project-container {
     display: flex;
-    width: 100%;
+    width: 80%;
     height:100%;
+    border: 1px solid orange;
+    justify-content: center;
+    align-items: stretch;
 }
 
+.project-container > * {
+    transition: all .5s ease;
+}
+
+.p1-inner {
+    background-color: green;
+    left: 0;
+}
+
+.p2-inner {
+    background-color: red;
+    right: 0;
+}
 .project-inner {
-    height: 100%;
+    /* height: 100%; */
     border: 1px solid black;
-    flex-grow: .5;
-    max-width: 80%;
     align-content: center;
     display: grid;
     justify-items: center;
+    flex: 0 1 60px;
 }
 
 .chat-inner{
     /* background-color: linear-gradient(to right bottom, #0E297A, #21134E); */
     background-color: #21134E;
-    /* display: grid; */
     justify-content: center;
-    /* align-content: center; */
 }
 
-.p1-inner {
-    background-color: green;
-}
-
-.p2-inner {
-    background-color: red;
-}
 
 .selected {
-    flex-grow: 10;
-    box-shadow: 10px 10px 5px black ;
+    transition: all .5s ease-in-out;
+    flex-grow: 5;
+    box-shadow: 5px 5px 4px green ;
 }
 
 .chat-title {
@@ -367,13 +391,18 @@
 
 .chat-title:hover {
     color: yellow;
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+}
+
+.gifsms-link:hover {
+    color: rgb(247, 247, 81)!important;
+    /* font-size: 1.05rem; */
 }
 
 .title-unselected {
+    transition: all .5s ease-in-out;
     transform: rotate(-90deg);
-
-
+    width: 140px;
   /* Legacy vendor prefixes that you probably don't need... */
 
   /* Safari */

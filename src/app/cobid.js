@@ -53,7 +53,7 @@ function Cobid(props) {
         }
 
         // const enter = (e) => {
-        //     if (e.key === "Enter") { cobidFetch() }
+        //     if (e.key === "Enter") { cobidFetch(e.target.text) }
         // }
 
     return (
@@ -63,7 +63,7 @@ function Cobid(props) {
             </DropdownButton> */}
             <Navbar   expand="lg">
                 <NavDropdown title={cobidField}>
-            {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
+            {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onsubmit={(e)=>{enter(e)}} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
                 </NavDropdown>
             </Navbar>
         { !loaded 

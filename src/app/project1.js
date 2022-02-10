@@ -91,15 +91,20 @@ const Chat = () => {
         //     )
         // }
 
+        const enter = (e) => {
+            if (e.key === "Enter") { searchGif() }
+        }
+
     return (
         <div className="chat-container">
+            <div className="chatter">
             <div className="chat-window">
             {chat &&
             chat.map( chit => (<img src={chit.image} className="gif-message" key={chit.id} alt={chit.title} />) )}
             <div ref={messagesEndRef} />
             </div>
             <div className="input-field">
-                <input value={searchField} onChange={(e) => setSearchField(e.target.value)}></input>
+                <input value={searchField} onChange={(e) => setSearchField(e.target.value)} onKeyDown={(e) => enter(e)}></input>
                 <button onClick={searchGif}>gif me</button>
                 <div className="gif-array">
                     {results &&
@@ -107,11 +112,12 @@ const Chat = () => {
                     }
                 </div>
             </div>
-
+            </div>
             <div className="chat-desc">
-                GIFSMS was originally a chance to explore Socket.io systems and see how those live systems can be harnessed for a variety of things. The fun of 
-                limiting the interactions to Giphs from the Giphy API was just a great way to get us thinking. Our original site with Auth0 integration, chat rooms and 
-                persistant gif favoriting functionality can be found at {<a href="https://loving-kepler-ecd79b.netlify.app/">GIFSMS</a>}
+                GIFSMS was originally a project to explore Socket.io systems and see how those live systems can be harnessed. The fun of 
+                limiting the interactions to gifs from the Giphy API was just a great way to get us thinking. Our original site with Auth0 integration, 
+                chat rooms and persistant gif favoriting functionality can be found at:  
+                {<a style={{"font-family": 'KoHo', "color":"white"}} className="gifsms-link" href="https://loving-kepler-ecd79b.netlify.app/"> GIFSMS</a>}
             </div>
 
         </div>
