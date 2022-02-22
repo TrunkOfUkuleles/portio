@@ -45,22 +45,20 @@ function Cobid(props) {
                             )
                 props.warn(core.riskLevels.overall)
                 setLoaded(true);
-                console.log("the state: ", stateData)
+                // console.log("the state: ", stateData)
             })
             .catch((error) =>{
                 console.log('try harder', error)
             })
         }
 
-        // const enter = (e) => {
-        //     if (e.key === "Enter") { cobidFetch(e.target.text) }
-        // }
 
     return (
          <div >
            {/* <DropdownButton title={cobidField} >
                 {stateList.map(el => <Dropdown.Item id={el} value={el} key={el} onClick={(ell) => { cobidFetch(ell.target.text) }} >{el}</Dropdown.Item> )}
             </DropdownButton> */}
+            {loaded && <div className='risk-score'>{stateData.risk}</div>}
             <Navbar   expand="lg">
                 <NavDropdown title={cobidField}>
             {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onsubmit={(e)=>{enter(e)}} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
@@ -69,7 +67,6 @@ function Cobid(props) {
         { !loaded 
             ? <></>
             :<div className="covid-data-box">
-                {stateData.risk}
             <p>Hospital Bed Capacity</p>
             <div className="progress-box">
             <ProgressBar label="hospital-beds">
@@ -86,7 +83,7 @@ function Cobid(props) {
             </ProgressBar>
             </div>
 
-            <div className="case-line">{stateData.cases} cases | {stateData.deaths} deaths</div>
+            <div className="case-line">{stateData.cases} total cases | {stateData.deaths} total deaths</div>
 
             </div>
         }

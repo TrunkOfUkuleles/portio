@@ -3,7 +3,7 @@ import Cobid from './cobid.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVirus } from '@fortawesome/free-solid-svg-icons';
 
-function Header({change}) {
+function Header({change, highlighted}) {
 
     // const logo = require("../logo.svg")
     const [openForecast, setOpenForecast] = useState(false)
@@ -17,8 +17,8 @@ function Header({change}) {
                 <div className="navs about" value="about" onClick={(e)=>{change('about')}}>About Me</div>
                 <div className="navs projects" value="projects" onClick={(e)=>{change('projects')}}>Projects</div>
                 </div>
-            <div className={`forecast ${openForecast ? "open" : "closed"} covid-forecast warning-color-${wraninglevel}`}>
-                { openForecast ? <Cobid warn={setWarningLevel} /> : <></> }
+            <div className={`forecast ${openForecast ? "open" : "closed"} ${highlighted ? "highlighted" : ""} covid-forecast warning-color-${wraninglevel}`}>
+                { openForecast ? <Cobid className="covid-widget" warn={setWarningLevel} /> : <></> }
                 <FontAwesomeIcon className="v-icon" icon={faVirus} onClick={()=> setOpenForecast(!openForecast)} />
             </div>
         </div>

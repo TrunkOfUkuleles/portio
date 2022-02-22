@@ -7,22 +7,26 @@ import '../style.css';
 
 const App = () => {
 
-    const [loading, setLoading] = React.useState(true);
-    const [focus, setFocus] = React.useState('home')
-
-
+    const [focus, setFocus] = useState('about')
+    const [highlighted, setHighlighted] = useState(false)
+    const tester = (e) => {
+        console.log(e, highlighted)
+        setHighlighted(e)
+    }
 
     return (
         <div className='main'>
-            <Header change={setFocus} />
+            <Header change={setFocus} highlighted={highlighted}/>
 
-            <div className="main-box" style={{"border": "2px solid green", "minHeight": "2em"}}>
-
+            <div className="main-box grid-bg ba-grid anim" >
+            {/* <div className="grid-bg ba-grid anim"> */}
+                {/* <div className="inner"></div> */}
                 {focus=='about' && <About />}
-                {focus==='projects' && <Projects />}
-            </div>
-            
+                {focus==='projects' && <Projects hl={tester}/>}
             <Footer />
+            </div>
+            {/* </div> */}
+            
         </div>
     )
 }
