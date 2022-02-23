@@ -6,7 +6,7 @@ const Stack = ({bits}) => {
 
     const badge = (info) => {
         return (
-            <img src={info} alt={`badge${info}`} />
+            <img className='badge-img' src={info} key={`key-for-${info}`} alt={`badge${info}`} />
         )
     }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Stack from './Components/techStack';
 
 
 const About = () => {
@@ -81,7 +82,7 @@ const stacks =   [
         <div className="about-me">
             <div className='about-section'>
             <div className="picture-box">
-            <img type="jpg" src="../staff1.jpg" width="200" height="200" style={{"border-radius": "100px"}}/>
+            <img type="jpg" src="../staff1.jpg" width="200" height="200" style={{"borderRadius": "100px"}}/>
             </div>
             <div className="about-talk">    
 
@@ -94,9 +95,10 @@ const stacks =   [
             </div>
             </div>
 
-            <div className='tech-stack-container'>
+            <Stack bits={stacks} />
+            {/* <div className='tech-stack-container'>
                 {stacks.map(badgee=> badge(badgee))}
-            </div>
+            </div> */}
             {/* {timeline()} */}
             <div className="social-box">
                 <div className="git-box">

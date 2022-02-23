@@ -339,6 +339,7 @@
     padding: 40px 100px;
     display: flex;
     flex-flow: column;
+    
 }
 
 .picture-box{
@@ -349,6 +350,7 @@
 .about-section {
     display: flex;
     text-align: justify;
+    margin-bottom: 6rem;
 }
 
 .about-talk {
@@ -363,6 +365,7 @@
     justify-content: center;
     flex-flow: row wrap;
     padding: 50px 75px;
+    /* max-height: 150px; */
 }
 
 .tech-stack-container>* {
@@ -372,11 +375,14 @@
 
 .chat-stack {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     flex-wrap: wrap;
     max-height: 165px;
-    
+    max-width: 50%;
+    margin: auto;
+    /* margin-top: 5em; */
+    bottom: 0px;    /* border: 1px solid red;     */
 }
 
 .chat-stack>*{
@@ -484,7 +490,7 @@
 }
 
 .gif-result {
-    cursor: pointer;
+    cursor:pointer;
     /* height: 80px;
     margin: 3px; */
     width: 6vw;
@@ -563,6 +569,11 @@
 .p1-inner {
     background-color: green;
     left: 0;
+}
+
+.tracker-container {
+    display: grid;
+    justify-items: center;
 }
 
 .tracker-inner {

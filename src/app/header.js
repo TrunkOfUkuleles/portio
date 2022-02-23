@@ -12,7 +12,7 @@ function Header({change, highlighted}) {
     return (
         <div className="header-background">
         <div className="header-container">
-            <div className="logo-container"><img type="svg" src="../resizeLogo.svg" width="50" height="60" /></div>
+            <div className="logo-container"><img type="png" src="../regular-logo.png" width="50" height="60" /></div>
                 <div className='text navs'>
                 <div className="navs about" value="about" onClick={(e)=>{change('about')}}>About Me</div>
                 <div className="navs projects" value="projects" onClick={(e)=>{change('projects')}}>Projects</div>

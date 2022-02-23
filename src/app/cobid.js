@@ -61,7 +61,7 @@ function Cobid(props) {
             {loaded && <div className='risk-score'>{stateData.risk}</div>}
             <Navbar   expand="lg">
                 <NavDropdown title={cobidField}>
-            {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onsubmit={(e)=>{enter(e)}} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
+            {stateList.map(el => <NavDropdown.Item id={el} className="dropdown-states" value={el} key={el} onSubmit={(e)=>{enter(e)}} onClick={(ell) => { cobidFetch(ell.target.text) }}>{el}</NavDropdown.Item> )}
                 </NavDropdown>
             </Navbar>
         { !loaded 
