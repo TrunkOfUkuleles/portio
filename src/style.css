@@ -375,14 +375,14 @@
 
 .chat-stack {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     max-height: 165px;
     max-width: 50%;
     margin: auto;
     /* margin-top: 5em; */
-    bottom: 0px;    /* border: 1px solid red;     */
+    bottom: 0px;    
 }
 
 .chat-stack>*{
